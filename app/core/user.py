@@ -4,16 +4,16 @@ class User:
   def __init__(self, username, the_bio):
     self.bio = the_bio
 
-    self.username = usrname
+    self.username = username
 
-def get_username(self):
-  return self.username
+  def get_username(self):
+    return self.username
 
-def set_username(self, the_name):
-  self.username = the_name
+  def set_username(self, the_name):
+    self.username = the_name
 
-def get_bio(self):
-  return self.bio
+  def get_bio(self):
+    return self.bio
 
-def set_bio(self, the_bio):
-  self.bio = the_bio  
+  def set_bio(self, the_bio):
+    self.bio = the_bio  
