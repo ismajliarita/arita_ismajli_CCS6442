@@ -1,19 +1,21 @@
 class User:
   """Plain user class used for the Git workflow exercises."""
-  
-  def __init__(self, username, the_bio):
-    self.bio = the_bio
 
-    self.username = username
+  def __init__(self, username, the_bio):
+      self.bio = the_bio
+      self.username = username
 
   def get_username(self):
-    return self.username
+      return self.username
 
   def set_username(self, the_name):
-    self.username = the_name
+      self.username = the_name
 
   def get_bio(self):
-    return self.bio
+      return self.bio
 
   def set_bio(self, the_bio):
-    self.bio = the_bio  
+      self.bio = the_bio
+  
+  def __str__(self):
+    return f"User: {self.username}, Bio: {self.bio}"
