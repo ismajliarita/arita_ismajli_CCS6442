@@ -7,12 +7,13 @@ services:
     ports:
       - "8000:8000"
     environment:
-      DATABASE_URL: "postgresql://postgres:postgres@db/postgres"
+      DATABASE_URL: ${DATABASE_URL}
     env_file:
       - .env
     depends_on:
-      - db
-  db:
+      checkstatus:
+        condition: service_completed_successfully
+  postgres:
     image: postgres:11.5-alpine
     ports:
       - "5432:5432"
@@ -20,3 +21,11 @@ services:
       - .env
     volumes:
       - ./postgres-data:/var/lib/postgresql/data:cached
+  checkstatus:
+    build:
+      context: ./src
+      dockerfile: Production-Dockerfile
+    env_file:
+      - .env
+    depends_on:
+      - postgres
